@@ -57,7 +57,7 @@ const Container = styled.div`
     align-items: center;
     margin: 1rem;
     input {
-      width: 100%;
+      width: 95%;
       margin: 0.25rem 0;
       padding: 0.5rem;
       font-size: 1.1rem;
@@ -69,9 +69,13 @@ const Container = styled.div`
       font-size: 1.3rem;
       padding: 0.5rem;
       color: white;
-      background-color: blue;
+      background-color: black;
       border: none;
       outline: none;
+      cursor: pointer;
+       &:hover {
+        background-color: rgba(0,0,0,0.85);
+      }
     }
   }
   @media screen and (min-width: 800px) {
