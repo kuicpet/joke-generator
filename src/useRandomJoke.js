@@ -6,7 +6,7 @@ function useRandomJoke(firstName, lastName) {
     try {
       const fetchJoke = async () => {
         await fetch(
-          `http://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}`
+          `https://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}`
         )
           .then((res) => res.json())
           .then((data) => setJoke(data.value.joke))
