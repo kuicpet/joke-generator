@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import './App.css'
 import useRandomJoke from './useRandomJoke'
 import styled from 'styled-components'
+import Button from './components/Button'
 
 
 function App() {
@@ -35,7 +36,10 @@ function App() {
           // value={lastName}
           // onChange={(e) => setLastName(e.target.value)}
         />
-        <button onClick={generateJoke}>Generate a Joke</button>
+        {/*<button onClick={generateJoke}>Generate a Joke</button>*/}
+        <Button generateJoke={generateJoke}>
+            Generate a Joke
+        </Button>
       </form>
     </Container>
   )
