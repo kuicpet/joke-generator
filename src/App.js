@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
 import './App.css'
-import useRandomJoke from './useRandomJoke'
+import useRandomJoke from './hooks/useRandomJoke'
 import styled from 'styled-components'
 import Button from './components/Button'
-
+import useAdvice from './hooks/useAdvice'
 
 function App() {
   const firstNameRef = useRef(null)
@@ -13,6 +13,7 @@ function App() {
   const [lastName, setLastName] = useState('Umujeyan')
 
   const joke = useRandomJoke(firstName, lastName)
+  const advice = useAdvice()
 
   const generateJoke = (e) => {
     e.preventDefault()
@@ -37,10 +38,12 @@ function App() {
           // onChange={(e) => setLastName(e.target.value)}
         />
         {/*<button onClick={generateJoke}>Generate a Joke</button>*/}
-        <Button generateJoke={generateJoke}>
-            Generate a Joke
-        </Button>
+        <Button generateJoke={generateJoke}>Generate a Joke</Button>
       </form>
+      <div>
+        <p>Advice for Today</p>
+        <h2>{advice}</h2>
+      </div>
     </Container>
   )
 }
@@ -52,6 +55,11 @@ const Container = styled.div`
   padding: 1rem;
   align-items: center;
   justify-content: center;
+  p {
+    text-align: center;
+    border-bottom: 2px solid gray;
+    padding: 0.25rem;
+  }
   h2 {
     font-weight: 400;
   }
@@ -62,14 +70,14 @@ const Container = styled.div`
     align-items: center;
     margin: 1rem;
     input {
-      width: 95%;
+      width: 75%;
       margin: 0.25rem 0;
       padding: 0.5rem;
       font-size: 1.1rem;
       border: 1px solid blue;
     }
     button {
-      width: 100%;
+      width: 50%;
       margin: 0.5rem 0;
       font-size: 1.3rem;
       padding: 0.5rem;
@@ -78,8 +86,9 @@ const Container = styled.div`
       border: none;
       outline: none;
       cursor: pointer;
-       &:hover {
-        background-color: rgba(0,0,0,0.85);
+      border-radius: 10px;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.85);
       }
     }
   }
